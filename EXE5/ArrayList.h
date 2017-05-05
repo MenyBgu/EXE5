@@ -25,6 +25,7 @@ public:
 template <class T>
 void ArrayList<T>::addElement(T toAdd){					//add element.
 	T *temp = new T[size + 1];			//making dynamic temp.
+	assert(temp != 0);
 	for (int i = 0; i < size; i++){		//make copy of storage.
 		temp[i] = storage[i];
 	}
@@ -65,7 +66,7 @@ T ArrayList<T>::popMin(){
 	else{
 		T min = NULL;
 		min = storage[0];
-		T*temp = new T[size];						//copy our array to temp array.
+		T*temp = new T[size-1];						//copy our array to temp array.
 		assert(temp != 0);							//Check memory allocation.
 		for (int i = 1; i < size; i++){			//find our minimum element.
 			if (storage[i] < min){
@@ -76,7 +77,7 @@ T ArrayList<T>::popMin(){
 		for (int i = 0; i < counter; i++){
 			temp[i] = storage[i];
 		}
-		for (int i = counter; i < size; i++){		//from one after min keep copy to original.
+		for (int i = counter; i < size-1; i++){		//from one after min keep copy to original.
 			temp[i] = storage[i + 1];
 		}
 		delete[]storage;
@@ -107,7 +108,7 @@ T ArrayList<T>::popMax(){
 		for (int i = 0; i < counter; i++){
 			temp[i] = storage[i];
 		}
-		for (int i = counter; i < size; i++){		//from one after max keep copy to original.
+		for (int i = counter; i < size-1; i++){		//from one after max keep copy to original.
 			temp[i] = storage[i + 1];
 		}
 		delete[]storage;
@@ -126,7 +127,7 @@ void ArrayList<T>::print()const{
 
 template <class T>
 ArrayList<T>::ArrayList(const ArrayList& copy){	//copyConstructor.
-	this->storage = new T(*(copy.storage(size)));
+	this->storage = new T[copy.size];
 	size = copy.size;
 
 	for (int i = 0; i < size; i++){
@@ -138,6 +139,5 @@ template <class T>
 ArrayList<T>::~ArrayList(){						//destructor & release dynamic memory.
 	delete[] storage;
 	cout << "Array at the size of " << size << " has been deleted." << endl;
-	cin.get();
 }
 #endif

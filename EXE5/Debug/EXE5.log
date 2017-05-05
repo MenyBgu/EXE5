@@ -1,4 +1,4 @@
-﻿Build started 05/05/2017 11:55:21.
+﻿Build started 05/05/2017 18:40:56.
      1>Project "E:\VS2013\EXE5\EXE5\EXE5.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Program Files\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.60
+Time Elapsed 00:00:03.33
